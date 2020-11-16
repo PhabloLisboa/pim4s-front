@@ -18,6 +18,11 @@ const Error = (
         ...state,
         selected: action.selected,
       };
+    case ClientActions.SET_INVESTIMENTOS:
+      return {
+        ...state,
+        inventimentos: action.investimentos,
+      };
     default:
       return {
         ...state,

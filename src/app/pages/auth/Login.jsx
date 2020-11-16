@@ -42,7 +42,7 @@ export default function Login() {
         style={{ backgroundColor: "rgba(255, 255, 255, .1)" }}
         square
       >
-        <Typography component="h1" variant="h4" style={{ color: "white" }}>
+        <Typography component="h1" variant="h4">
           LogIn
         </Typography>
         <form

@@ -1,18 +1,32 @@
 import { Button, Card, CardMedia, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import qrCode from "../../assets/qrcode.png";
+import Dialog from "./Dialog";
 
 export default function Account() {
   const user = useSelector((state) => state.Auth.user);
+  const [open, setOpen] = useState(false);
+  const [type, setType] = useState("Depositar");
   const objectUser = user.funcionario || user.client;
   return (
     <div>
+      <Dialog
+        open={open}
+        type={type}
+        onClose={() => setOpen(false)}
+        conta={objectUser?.conta}
+        idUser={user.id}
+      />
       <div className="flex w-full justify-end mb-8">
         <Button
           variant="contained"
           style={{ marginRight: "5px" }}
           color="primary"
+          onClick={() => {
+            setOpen(true);
+            setType("Depositar");
+          }}
         >
           Depositar
         </Button>
@@ -20,6 +34,10 @@ export default function Account() {
           variant="contained"
           style={{ marginLeft: "5px" }}
           color="secondary"
+          onClick={() => {
+            setOpen(true);
+            setType("Sacar");
+          }}
         >
           Sacar
         </Button>

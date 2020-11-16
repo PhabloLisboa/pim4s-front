@@ -32,12 +32,6 @@ export default function TableClients() {
               <strong>Nome</strong>
             </TableCell>
             <TableCell align="center">
-              <strong>E-mail Principal</strong>
-            </TableCell>
-            <TableCell align="center">
-              <strong>CPF</strong>
-            </TableCell>
-            <TableCell align="center">
               <strong>Ações</strong>
             </TableCell>
           </TableRow>
@@ -46,11 +40,7 @@ export default function TableClients() {
           {clients.map((client, index) => (
             <TableRow key={client.name}>
               <TableCell component="th" scope="row">
-                {client.name}
-              </TableCell>
-              <TableCell align="center">{client.emails[0].email}</TableCell>
-              <TableCell align="center">
-                {cpfFormatter.apply(client.cpf)}
+                {client.funcionario?.name || client.client?.name}
               </TableCell>
               <TableCell align="center">
                 {user && user.role.description === "Administrador" && (
@@ -69,7 +59,7 @@ export default function TableClients() {
                 >
                   <Visibility />
                 </IconButton>
-                {user && user.role.description === "Administrador" && (
+                {user && user.role.description === "Admin" && (
                   <IconButton
                     onClick={() =>
                       dispatch(dialogActions.openDialog("delete", client))

@@ -25,5 +25,13 @@ const Routes = [
     path: "/contratos",
     component: React.lazy(() => import("./contratos/Contratos")),
   },
+  {
+    path: "/Usuários",
+    component: React.lazy(() => import("./usuarios/Users")),
+  },
+  {
+    path: "/Criptoativos",
+    component: React.lazy(() => import("./criptoativos/Criptoativos")),
+  },
 ];
 export default Routes;

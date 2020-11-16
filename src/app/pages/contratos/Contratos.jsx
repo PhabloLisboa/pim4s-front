@@ -6,10 +6,12 @@ import {
   Icon,
   Button,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import SwapHoriz from "@material-ui/icons/SwapHoriz";
+import Dialog from "./Dialog";
 
 export default function Contratos() {
+  const [open, setOpen] = useState(false);
   const contratos = [
     {
       title: "Lorem ipsum dolor sit amet",
@@ -48,11 +50,13 @@ export default function Contratos() {
   ];
   return (
     <div>
+      <Dialog open={open} onClose={() => setOpen(false)} />
       <div className="flex w-full justify-end mb-4">
         <Button
           variant="contained"
           style={{ marginRight: "5px" }}
           color="primary"
+          onClick={() => setOpen(true)}
         >
           Novo
         </Button>

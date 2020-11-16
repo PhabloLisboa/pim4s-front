@@ -8,12 +8,12 @@ export default function DialogInvest(props) {
     <Dialog onClose={onClose} open={open}>
       <Card className="p-8">
         <form action="" className="flex flex-col justify-around">
-          <h1>Valor retornado</h1>
           <TextField
             style={{ margin: "5px auto" }}
             id="outlined-basic"
-            label="Outlined"
+            label="Valor retornado"
             variant="outlined"
+            name="returnedValue"
           />
           <Button variant="contained" color="primary">
             Finalizar
